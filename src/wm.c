@@ -1,9 +1,15 @@
 #include <getopt.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <wayland-server.h>
 #include <wayland-util.h>
 
 #define VERSION "0.1a"
+
+struct wl_display *display;
+struct wl_event_loop *event_loop;
+struct wl_list screens;
+struct wl_list hidden_winodws;
 
 int
 main(int argc, char *argv[])
@@ -23,6 +29,8 @@ main(int argc, char *argv[])
 			exit(EXIT_FAILURE);
 		}
 	}
+
+	display = wl_display_create();
 
 	return 0;
 }

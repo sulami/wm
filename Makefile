@@ -8,7 +8,7 @@ BINDIR ?= $(PREFIX)/bin
 CC = gcc
 CFLAGS += -std=c99 -pedantic -Wall -Wextra -Werror \
           -Wimplicit-function-declaration -Wno-main -Wno-uninitialized
-LDFLAGS += 
+LDFLAGS += -lwayland-server
 
 SRCDIR = src
 SRC = $(SRCDIR)/$(PROJECT).c
