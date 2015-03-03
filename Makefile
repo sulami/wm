@@ -12,7 +12,7 @@ LDFLAGS += -lwayland-server
 
 SRCDIR = src
 SRC = $(SRCDIR)/$(PROJECT).c
-OBJ = 
+OBJ = util.o
 
 ifeq ($(DEBUG),0)
     CFLAGS  += -O2

@@ -4,6 +4,8 @@
 #include <wayland-server.h>
 #include <wayland-util.h>
 
+#include "util.h"
+
 #define VERSION "0.1a"
 
 struct wl_display *display;
@@ -31,6 +33,8 @@ main(int argc, char *argv[])
 	}
 
 	display = wl_display_create();
+	if (!display)
+		die("Failed to create a display");
 
 	return 0;
 }
