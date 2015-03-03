@@ -35,10 +35,17 @@ main(int argc, char *argv[])
 
 	display = wl_display_create();
 	if (!display)
-		die("Failed to create a display");
+		die("Failed to create a wayland display");
 
 	if (wl_display_add_socket(display, NULL) != 0)
 		die("Failed to add a wayland socket");
+
+	event_loop = wl_display_get_event_loop(display);
+	if (!event_loop)
+		die("Failed to get a wayland event loop");
+
+	wl_list_init(&screens);
+	wl_list_init(&hidden_winodws);
 
 	return EXIT_SUCCESS;
 }
