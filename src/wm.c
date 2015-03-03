@@ -9,6 +9,7 @@
 #define VERSION "0.1a"
 
 struct wl_display *display;
+struct wl_global *global;
 struct wl_event_loop *event_loop;
 struct wl_list screens;
 struct wl_list hidden_winodws;
@@ -36,6 +37,9 @@ main(int argc, char *argv[])
 	if (!display)
 		die("Failed to create a display");
 
-	return 0;
+	if (wl_display_add_socket(display, NULL) != 0)
+		die("Failed to add a wayland socket");
+
+	return EXIT_SUCCESS;
 }
 
