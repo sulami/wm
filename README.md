@@ -14,8 +14,8 @@ Building
 You will need the following:
 
 - Wayland
-- [swc][0]
-  - [wld][1]
+- [swc][0] (also on the [AUR][a0])
+  - [wld][1] (also on the [AUR][a1])
   - libdrm
   - libevdev
   - libxkbcommon
@@ -28,6 +28,8 @@ You will need the following:
 
   [0]: https://github.com/michaelforney/swc
   [1]: https://github.com/michaelforney/wld
+  [a0]: https://aur.archlinux.org/packages/swc-git/
+  [a1]: https://aur.archlinux.org/packages/wld-git/
 
 Usage
 -----

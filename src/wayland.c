@@ -15,7 +15,7 @@ wayland_init()
 
 	conn->display = wl_display_create();
 	if (!conn->display)
-		die("Failed to create a wayland display");
+		die("Failed to create a Wayland display");
 
 	swc_initialize(conn->display, NULL, &manager);
 	wl_display_run(conn->display);
