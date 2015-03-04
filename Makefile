@@ -8,11 +8,11 @@ BINDIR ?= $(PREFIX)/bin
 CC = gcc
 CFLAGS += -std=c99 -pedantic -Wall -Wextra -Werror \
           -Wimplicit-function-declaration -Wno-main -Wno-uninitialized
-LDFLAGS += -lwayland-server
+LDFLAGS += -lwayland-server -lswc
 
 SRCDIR = src
 SRC = $(SRCDIR)/$(PROJECT).c
-OBJ = util.o
+OBJ = util.o wayland.o
 
 ifeq ($(DEBUG),0)
     CFLAGS  += -O2

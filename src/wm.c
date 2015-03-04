@@ -1,18 +1,13 @@
 #include <getopt.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <wayland-server.h>
-#include <wayland-util.h>
 
 #include "util.h"
+#include "wayland.h"
 
 #define VERSION "0.1a"
 
-struct wl_display *display;
-struct wl_global *global;
-struct wl_event_loop *event_loop;
-struct wl_list screens;
-struct wl_list hidden_winodws;
+struct wl_connection *wl;
 
 int
 main(int argc, char *argv[])
@@ -33,19 +28,7 @@ main(int argc, char *argv[])
 		}
 	}
 
-	display = wl_display_create();
-	if (!display)
-		die("Failed to create a wayland display");
-
-	if (wl_display_add_socket(display, NULL) != 0)
-		die("Failed to add a wayland socket");
-
-	event_loop = wl_display_get_event_loop(display);
-	if (!event_loop)
-		die("Failed to get a wayland event loop");
-
-	wl_list_init(&screens);
-	wl_list_init(&hidden_winodws);
+	wl = wayland_init();
 
 	return EXIT_SUCCESS;
 }
