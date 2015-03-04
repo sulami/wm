@@ -31,6 +31,7 @@ static const struct swc_manager manager = {
  */
 struct wl_connection {
 	struct wl_display *display;
+	struct wl_event_loop *event_loop;
 };
 
 #endif

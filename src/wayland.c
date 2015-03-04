@@ -17,7 +17,14 @@ wayland_init()
 	if (!conn->display)
 		die("Failed to create a Wayland display");
 
-	swc_initialize(conn->display, NULL, &manager);
+	if (wl_display_add_socket(conn->display, NULL) != 0)
+		die("Failed to add a socket to the Wayland connection");
+
+	if (!swc_initialize(conn->display, NULL, &manager))
+		die("Failed to initialize swc");
+
+	conn->event_loop = wl_display_get_event_loop(conn->display);
+
 	wl_display_run(conn->display);
 
 	return conn;
