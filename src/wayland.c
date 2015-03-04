@@ -5,6 +5,7 @@
 
 #include "util.h"
 #include "wayland.h"
+#include "wm.h"
 
 struct wl_connection *
 wayland_init()
@@ -33,8 +34,14 @@ wayland_init()
 void
 new_screen(struct swc_screen *swc)
 {
-	/* TODO */
-	if (swc) {} /* shut up the compiler */
+	struct screen *screen = malloc(sizeof(struct screen));
+	if (!screen)
+		die("Failed to allocate screen");
+
+	screen->swc = swc;
+	wl_list_init(&screen->windows);
+	/* TODO add actual handler */
+	swc_screen_set_handler(swc, NULL, screen);
 }
 
 void
