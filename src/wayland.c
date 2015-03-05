@@ -47,8 +47,7 @@ new_screen(struct swc_screen *swc)
 
 	screen->swc = swc;
 	wl_list_init(&screen->windows);
-	/* TODO add actual handler */
-	swc_screen_set_handler(swc, NULL, screen);
+	swc_screen_set_handler(swc, &screen_handler, screen);
 }
 
 void
@@ -61,9 +60,10 @@ new_window(struct swc_window *swc)
 	window->swc = swc;
 	window->screen = NULL;
 
-	/* TODO */
-	/* - set handler */
-	/* - add window to active screen */
-	/* - focus window */
+	/* TODO
+	 * - set handler
+	 * - add window to active screen
+	 * - focus window
+	 */
 }
 
