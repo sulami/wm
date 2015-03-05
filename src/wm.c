@@ -4,8 +4,7 @@
 
 #include "util.h"
 #include "wayland.h"
-
-#define VERSION "0.1a"
+#include "wm.h"
 
 struct wl_connection *wl;
 
