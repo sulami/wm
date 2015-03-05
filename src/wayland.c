@@ -32,6 +32,12 @@ wayland_init()
 }
 
 void
+wayland_exit(struct wl_connection *conn)
+{
+	wl_display_destroy(conn->display);
+}
+
+void
 new_screen(struct swc_screen *swc)
 {
 	struct screen *screen = malloc(sizeof(struct screen));

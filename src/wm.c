@@ -30,6 +30,8 @@ main(int argc, char *argv[])
 
 	wl = wayland_init();
 
+	wayland_exit(wl);
+
 	return EXIT_SUCCESS;
 }
 
