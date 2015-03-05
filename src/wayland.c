@@ -47,7 +47,16 @@ new_screen(struct swc_screen *swc)
 void
 new_window(struct swc_window *swc)
 {
+	struct window *window = malloc(sizeof(struct window));
+	if (!window)
+		die("Failed to allocate window");
+
+	window->swc = swc;
+	window->screen = NULL;
+
 	/* TODO */
-	if (swc) {} /* shut up the compiler */
+	/* - set handler */
+	/* - add window to active screen */
+	/* - focus window */
 }
 
