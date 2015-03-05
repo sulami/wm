@@ -3,6 +3,7 @@
 #include <wayland-server.h>
 #include <wayland-util.h>
 
+#include "screen.h"
 #include "util.h"
 #include "wayland.h"
 #include "wm.h"
