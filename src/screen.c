@@ -31,6 +31,8 @@ screen_usable_geometry_changed(void *data)
 void
 screen_entered(void *data)
 {
-	if (data) {} /* FIXME shut up the compiler */
+	struct screen *screen = data;
+
+	wm.active_screen = screen;
 }
 
