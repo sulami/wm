@@ -1,7 +1,7 @@
 #ifndef WM_H
 #define WM_H
 
-#define VERSION "0.1a"
+#define VERSION "0.2a"
 
 /*
  * Hold the complete global state, the Wayland connection, active
