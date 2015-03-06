@@ -37,3 +37,11 @@ focus_window(struct window *window)
 	wm.active_window = window;
 }
 
+void
+window_entered(void *data)
+{
+	struct window *window = data;
+
+	focus_window(window);
+}
+

@@ -19,13 +19,19 @@ void new_window(struct swc_window *);
  * Change the focused window, handle borders.
  */
 void focus_window(struct window *);
+
+/*
+ * Callback for entering windows, essentially focus them.
+ */
+void window_entered(void *);
+
 /*
  * Hold window callbacks.
  */
 static const struct swc_window_handler window_handler = {
 	/* FIXME */
 	.destroy = NULL,
-	.entered = NULL,
+	.entered = &window_entered,
 };
 
 #endif
