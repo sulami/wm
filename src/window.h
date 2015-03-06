@@ -16,6 +16,10 @@ struct window {
 void new_window(struct swc_window *);
 
 /*
+ * Change the focused window, handle borders.
+ */
+void focus_window(struct window *);
+/*
  * Hold window callbacks.
  */
 static const struct swc_window_handler window_handler = {
