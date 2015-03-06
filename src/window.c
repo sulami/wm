@@ -14,6 +14,7 @@ new_window(struct swc_window *swc)
 		die("Failed to allocate window");
 
 	window->swc = swc;
+	window->screen = NULL;
 
 	swc_window_set_handler(swc, &window_handler, window);
 	swc_window_set_stacked(window->swc); /* TODO other modes? */
