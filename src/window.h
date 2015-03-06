@@ -26,11 +26,17 @@ void focus_window(struct window *);
 void window_entered(void *);
 
 /*
+ * Callback for destroying windows. Trigger removal from screen, free
+ * the window structure.
+ */
+void window_destroy(void *);
+
+/*
  * Hold window callbacks.
  */
 static const struct swc_window_handler window_handler = {
 	/* FIXME */
-	.destroy = NULL,
+	.destroy = &window_destroy,
 	.entered = &window_entered,
 };
 

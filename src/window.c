@@ -45,3 +45,17 @@ window_entered(void *data)
 	focus_window(window);
 }
 
+void
+window_destroy(void *data)
+{
+	struct window *window = data;
+
+	/*
+	 * TODO
+	 * - change focus ?
+	 */
+
+	screen_remove_window(window->screen, window);
+	free(window);
+}
+
