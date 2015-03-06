@@ -36,3 +36,12 @@ screen_entered(void *data)
 	wm.active_screen = screen;
 }
 
+void
+screen_add_window(struct screen *screen, struct window *window)
+{
+	window->screen = screen;
+	wl_list_insert(&screen->windows, &window->link);
+	++screen->num_windows;
+	swc_window_show(window->swc);
+}
+

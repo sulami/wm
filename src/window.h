@@ -15,5 +15,14 @@ struct window {
  */
 void new_window(struct swc_window *);
 
+/*
+ * Hold window callbacks.
+ */
+static const struct swc_window_handler window_handler = {
+	/* FIXME */
+	.destroy = NULL,
+	.entered = NULL,
+};
+
 #endif
 

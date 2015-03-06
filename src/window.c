@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <swc.h>
 
+#include "screen.h"
 #include "util.h"
 #include "window.h"
 #include "wm.h"
@@ -13,10 +14,12 @@ new_window(struct swc_window *swc)
 		die("Failed to allocate window");
 
 	window->swc = swc;
-	window->screen = wm.active_screen;
+
+	swc_window_set_handler(swc, &window_handler, window);
+	swc_window_set_stacked(window->swc); /* TODO other modes? */
+	screen_add_window(wm.active_screen, window);
 
 	/* TODO
-	 * - set handler
 	 * - focus window
 	 */
 }

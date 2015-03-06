@@ -1,6 +1,8 @@
 #ifndef SCREEN_H
 #define SCREEN_H
 
+#include "window.h"
+
 /*
  * Internal representation of a screen.
  */
@@ -24,6 +26,11 @@ void screen_usable_geometry_changed(void *);
  * Change the active screen.
  */
 void screen_entered(void *);
+
+/*
+ * Add a new window to a screen, add it to the list, map it.
+ */
+void screen_add_window(struct screen *, struct window *);
 
 /*
  * Used to bind the screen handling functions.
