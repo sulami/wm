@@ -21,6 +21,11 @@ void new_window(struct swc_window *);
 void focus_window(struct window *);
 
 /*
+ * Focus a window and set it to fullscreen.
+ */
+void fullscreen_winodw(struct window *);
+
+/*
  * Callback for entering windows, essentially focus them.
  */
 void window_entered(void *);

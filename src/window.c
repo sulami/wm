@@ -38,6 +38,13 @@ focus_window(struct window *window)
 }
 
 void
+fullscreen_winodw(struct window *window)
+{
+	focus_window(window);
+	swc_window_set_fullscreen(window->swc, window->screen->swc);
+}
+
+void
 window_entered(void *data)
 {
 	struct window *window = data;
