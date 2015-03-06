@@ -1,4 +1,5 @@
 #include <getopt.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -10,7 +11,8 @@
 int
 main(int argc, char *argv[])
 {
-	int opt, conf = 0;
+	int opt;
+	bool conf = false;
 
 	wm.debug = false;
 
@@ -18,7 +20,7 @@ main(int argc, char *argv[])
 		switch (opt) {
 		case 'c':
 			load_config(optarg);
-			conf = 1;
+			conf = true;
 			break;
 		case 'd':
 			wm.debug = true;
@@ -38,7 +40,7 @@ main(int argc, char *argv[])
 	}
 
 	/* Load the default config if no custom one has been loaded */
-	if (conf == 0)
+	if (!conf)
 		load_config(DEFAULT_CONFIG_PATH);
 
 	wm.wl_connection = wayland_init();

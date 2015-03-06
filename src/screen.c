@@ -47,7 +47,7 @@ screen_add_window(struct screen *screen, struct window *window)
 	debug("Window added to screen");
 	window->screen = screen;
 	wl_list_insert(&screen->windows, &window->link);
-	++screen->num_windows;
+	screen->num_windows += 1;
 	swc_window_show(window->swc);
 }
 
@@ -57,7 +57,7 @@ screen_remove_window(struct screen *screen, struct window *window)
 	debug("Window removed from screen");
 	window->screen = NULL;
 	wl_list_remove(&window->link);
-	--screen->num_windows;
+	screen->num_windows -= 1;
 	swc_window_hide(window->swc);
 }
 
