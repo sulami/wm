@@ -7,6 +7,7 @@
 void
 new_screen(struct swc_screen *swc)
 {
+	debug("Adding new screen");
 	struct screen *screen = malloc(sizeof(struct screen));
 	if (!screen)
 		die("Failed to allocate screen");
@@ -21,6 +22,7 @@ new_screen(struct swc_screen *swc)
 void
 screen_usable_geometry_changed(void *data)
 {
+	debug("Screen geometry changed");
 	struct screen *screen = data;
 
 	if (screen) {} /* FIXME shut up the compiler */
@@ -33,6 +35,7 @@ screen_usable_geometry_changed(void *data)
 void
 screen_entered(void *data)
 {
+	debug("Screen entered");
 	struct screen *screen = data;
 
 	wm.active_screen = screen;
@@ -41,6 +44,7 @@ screen_entered(void *data)
 void
 screen_add_window(struct screen *screen, struct window *window)
 {
+	debug("Window added to screen");
 	window->screen = screen;
 	wl_list_insert(&screen->windows, &window->link);
 	++screen->num_windows;
@@ -50,6 +54,7 @@ screen_add_window(struct screen *screen, struct window *window)
 void
 screen_remove_window(struct screen *screen, struct window *window)
 {
+	debug("Window removed from screen");
 	window->screen = NULL;
 	wl_list_remove(&window->link);
 	--screen->num_windows;

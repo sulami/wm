@@ -9,6 +9,7 @@
 void
 new_window(struct swc_window *swc)
 {
+	debug("Adding new window");
 	struct window *window = malloc(sizeof(struct window));
 	if (!window)
 		die("Failed to allocate window");
@@ -25,6 +26,7 @@ new_window(struct swc_window *swc)
 void
 focus_window(struct window *window)
 {
+	debug("Switching window focus");
 	if (window)
 		swc_window_focus(window->swc);
 		/*
@@ -40,6 +42,7 @@ focus_window(struct window *window)
 void
 fullscreen_winodw(struct window *window)
 {
+	debug("Fullscreening window");
 	focus_window(window);
 	swc_window_set_fullscreen(window->swc, window->screen->swc);
 }
@@ -47,18 +50,21 @@ fullscreen_winodw(struct window *window)
 void
 show_window(struct window *window)
 {
+	debug("Showing window");
 	swc_window_show(window->swc);
 }
 
 void
 hide_window(struct window *window)
 {
+	debug("Hiding window");
 	swc_window_hide(window->swc);
 }
 
 void
 window_entered(void *data)
 {
+	debug("Window entered");
 	struct window *window = data;
 
 	focus_window(window);
@@ -67,6 +73,7 @@ window_entered(void *data)
 void
 window_destroy(void *data)
 {
+	debug("Window destroyed");
 	struct window *window = data;
 
 	/*
