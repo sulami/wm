@@ -27,7 +27,7 @@ all: $(PROJECT)
 	@echo \  CC $<
 	@$(CC) $(CFLAGS) -c $<
 
-$(PROJECT): $(SRC) $(OBJ)
+$(PROJECT): $(SRC) $(OBJ) $(SRCDIR)/$(PROJECT).h
 	@echo \  CC $<
 	@$(CC) $(SRC) $(OBJ) $(CFLAGS) $(LDFLAGS) -o $(PROJECT)
 
