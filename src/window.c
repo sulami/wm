@@ -62,6 +62,16 @@ hide_window(struct window *window)
 }
 
 void
+set_window_geometry(struct window *window, struct swc_rectangle *geometry)
+{
+	debug("Setting window geometry");
+	if (!window || !geometry)
+		return;
+
+	swc_window_set_geometry(window->swc, geometry);
+}
+
+void
 window_entered(void *data)
 {
 	debug("Window entered");

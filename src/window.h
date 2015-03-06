@@ -26,6 +26,11 @@ void show_window(struct window *);
 void hide_window(struct window *);
 
 /*
+ * Set the geometry of a window.
+ */
+void set_window_geometry(struct window *, struct swc_rectangle *);
+
+/*
  * Change the focused window, handle borders.
  */
 void focus_window(struct window *);
