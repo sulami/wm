@@ -32,6 +32,7 @@ wayland_init()
 void
 wayland_exit(struct wl_connection *conn)
 {
+	wl_display_terminate(conn->display);
 	wl_display_destroy(conn->display);
 }
 
