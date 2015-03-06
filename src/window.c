@@ -3,6 +3,7 @@
 
 #include "util.h"
 #include "window.h"
+#include "wm.h"
 
 void
 new_window(struct swc_window *swc)
@@ -12,11 +13,10 @@ new_window(struct swc_window *swc)
 		die("Failed to allocate window");
 
 	window->swc = swc;
-	window->screen = NULL;
+	window->screen = wm.active_screen;
 
 	/* TODO
 	 * - set handler
-	 * - add window to active screen
 	 * - focus window
 	 */
 }
