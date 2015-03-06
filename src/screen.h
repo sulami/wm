@@ -5,6 +5,7 @@
  * Internal representation of a screen.
  */
 struct screen {
+	unsigned int num_windows;
 	struct swc_screen *swc;
 	struct wl_list windows;
 };
