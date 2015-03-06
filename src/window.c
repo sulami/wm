@@ -72,6 +72,15 @@ set_window_geometry(struct window *window, struct swc_rectangle *geometry)
 }
 
 void
+set_window_border(struct window *window, uint32_t color, int width)
+{
+	if (!window)
+		return;
+
+	swc_window_set_border(window->swc, color, width);
+}
+
+void
 window_entered(void *data)
 {
 	debug("Window entered");

@@ -31,6 +31,11 @@ void hide_window(struct window *);
 void set_window_geometry(struct window *, struct swc_rectangle *);
 
 /*
+ * Set the color and width of the border of a window.
+ */
+void set_window_border(struct window *, uint32_t, int);
+
+/*
  * Change the focused window, handle borders.
  */
 void focus_window(struct window *);
