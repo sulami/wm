@@ -4,6 +4,11 @@
 #include <stdint.h>
 
 /*
+ * Print a pretty formatted debug message if debugging is enabled.
+ */
+void debug(char *);
+
+/*
  * Print a pretty formatted warning message.
  */
 void warn(char *);

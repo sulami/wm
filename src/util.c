@@ -3,6 +3,17 @@
 #include <unistd.h>
 #include <wayland-client.h>
 
+#include "wm.h"
+
+void
+debug(char *msg)
+{
+	if (!wm.debug)
+		return;
+
+	fprintf(stdout, "DEBUG: %s.\n", msg);
+}
+
 void
 warn(char *warn)
 {

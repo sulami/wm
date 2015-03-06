@@ -11,8 +11,14 @@ main(int argc, char *argv[])
 {
 	int opt;
 
-	while((opt = getopt(argc, argv, "vh")) != -1) {
+	wm.debug = false;
+
+	while((opt = getopt(argc, argv, "dhv")) != -1) {
 		switch (opt) {
+		case 'd':
+			wm.debug = true;
+			debug("Enabled debug output");
+			break;
 		case 'h':
 			puts("TBD");
 			break;
@@ -20,7 +26,7 @@ main(int argc, char *argv[])
 			printf("%s %s\n", argv[0], VERSION);
 			break;
 		default:
-			fprintf(stderr, "Usage: %s [-vh]\n", argv[0]);
+			fprintf(stderr, "Usage: %s [-dhv]\n", argv[0]);
 			exit(EXIT_FAILURE);
 		}
 	}
