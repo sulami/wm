@@ -4,6 +4,12 @@
 #include <wayland-client.h>
 
 void
+warn(char *warn)
+{
+	fprintf(stderr, "WARNING: %s.\n", warn);
+}
+
+void
 die(char *err)
 {
 	fprintf(stderr, "ERROR: %s.\n", err);

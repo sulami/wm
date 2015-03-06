@@ -4,7 +4,12 @@
 #include <stdint.h>
 
 /*
- * Print an pretty formatted error message and then kill everything.
+ * Print a pretty formatted warning message.
+ */
+void warn(char *);
+
+/*
+ * Print a pretty formatted error message and then kill everything.
  */
 void die(char *);
 
