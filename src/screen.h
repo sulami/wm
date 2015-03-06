@@ -33,6 +33,11 @@ void screen_entered(void *);
 void screen_add_window(struct screen *, struct window *);
 
 /*
+ * Remove a window from a screen and the list, unmap it.
+ */
+void screen_remove_window(struct screen *, struct window *);
+
+/*
  * Used to bind the screen handling functions.
  */
 static const struct swc_screen_handler screen_handler = {

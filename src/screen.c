@@ -45,3 +45,12 @@ screen_add_window(struct screen *screen, struct window *window)
 	swc_window_show(window->swc);
 }
 
+void
+screen_remove_window(struct screen *screen, struct window *window)
+{
+	window->screen = NULL;
+	wl_list_remove(&window->link);
+	--screen->num_windows;
+	swc_window_hide(window->swc);
+}
+
