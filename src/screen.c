@@ -12,8 +12,10 @@ new_screen(struct swc_screen *swc)
 		die("Failed to allocate screen");
 
 	screen->swc = swc;
+	screen->num_windows = 0;
 	wl_list_init(&screen->windows);
 	swc_screen_set_handler(swc, &screen_handler, screen);
+	wm.active_screen = screen;
 }
 
 void
