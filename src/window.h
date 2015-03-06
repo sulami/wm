@@ -16,6 +16,16 @@ struct window {
 void new_window(struct swc_window *);
 
 /*
+ * Show the window passed if hidden.
+ */
+void show_window(struct window *);
+
+/*
+ * Hide the window passed if shown.
+ */
+void hide_window(struct window *);
+
+/*
  * Change the focused window, handle borders.
  */
 void focus_window(struct window *);
@@ -40,7 +50,6 @@ void window_destroy(void *);
  * Hold window callbacks.
  */
 static const struct swc_window_handler window_handler = {
-	/* FIXME */
 	.destroy = &window_destroy,
 	.entered = &window_entered,
 };

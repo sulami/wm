@@ -45,6 +45,18 @@ fullscreen_winodw(struct window *window)
 }
 
 void
+show_window(struct window *window)
+{
+	swc_window_show(window->swc);
+}
+
+void
+hide_window(struct window *window)
+{
+	swc_window_hide(window->swc);
+}
+
+void
 window_entered(void *data)
 {
 	struct window *window = data;
