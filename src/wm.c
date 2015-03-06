@@ -25,13 +25,9 @@ main(int argc, char *argv[])
 		}
 	}
 
-	struct wm *wm = malloc(sizeof(struct wm));
-	if (!wm)
-		die("Failed to allocate wm struct");
+	wm.wl_connection = wayland_init();
 
-	wm->wl_connection = wayland_init();
-
-	wayland_exit(wm->wl_connection);
+	wayland_exit(wm.wl_connection);
 
 	return EXIT_SUCCESS;
 }
