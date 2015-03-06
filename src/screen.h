@@ -10,6 +10,11 @@ struct screen {
 };
 
 /*
+ * Callback for adding new screens via swc.
+ */
+void new_screen(struct swc_screen *);
+
+/*
  * Handle a change in screen dimensions, e.g. docks.
  */
 void screen_usable_geometry_changed(void *);

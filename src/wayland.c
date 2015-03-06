@@ -1,9 +1,7 @@
 #include <stdlib.h>
-#include <swc.h>
 #include <wayland-server.h>
 #include <wayland-util.h>
 
-#include "screen.h"
 #include "util.h"
 #include "wayland.h"
 
@@ -35,17 +33,5 @@ void
 wayland_exit(struct wl_connection *conn)
 {
 	wl_display_destroy(conn->display);
-}
-
-void
-new_screen(struct swc_screen *swc)
-{
-	struct screen *screen = malloc(sizeof(struct screen));
-	if (!screen)
-		die("Failed to allocate screen");
-
-	screen->swc = swc;
-	wl_list_init(&screen->windows);
-	swc_screen_set_handler(swc, &screen_handler, screen);
 }
 

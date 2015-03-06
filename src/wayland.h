@@ -3,6 +3,7 @@
 
 #include <swc.h>
 
+#include "screen.h"
 #include "window.h"
 
 /*
@@ -14,11 +15,6 @@ struct wl_connection *wayland_init();
  * Terminate an existing Wayland connection by destroying the display.
  */
 void wayland_exit(struct wl_connection *);
-
-/*
- * Callback for adding new screens via swc.
- */
-void new_screen(struct swc_screen *);
 
 /*
  * Swc manager to point to required callbacks.
