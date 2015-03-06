@@ -3,6 +3,8 @@
 
 #include <swc.h>
 
+#include "window.h"
+
 /*
  * Use swc to initialize a Wayland connection.
  */
@@ -17,11 +19,6 @@ void wayland_exit(struct wl_connection *);
  * Callback for adding new screens via swc.
  */
 void new_screen(struct swc_screen *);
-
-/*
- * Callback for adding new windows via swc.
- */
-void new_window(struct swc_window *);
 
 /*
  * Swc manager to point to required callbacks.
