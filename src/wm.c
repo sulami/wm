@@ -6,8 +6,6 @@
 #include "wayland.h"
 #include "wm.h"
 
-struct wl_connection *wl;
-
 int
 main(int argc, char *argv[])
 {
@@ -27,9 +25,13 @@ main(int argc, char *argv[])
 		}
 	}
 
-	wl = wayland_init();
+	struct wm *wm = malloc(sizeof(struct wm));
+	if (!wm)
+		die("Failed to allocate wm struct");
 
-	wayland_exit(wl);
+	wm->wl_connection = wayland_init();
+
+	wayland_exit(wm->wl_connection);
 
 	return EXIT_SUCCESS;
 }
