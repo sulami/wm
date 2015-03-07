@@ -62,6 +62,20 @@ hide_window(struct window *window)
 }
 
 void
+set_window_position(struct window *window, int32_t x, int32_t y)
+{
+	debug("Setting window position");
+	swc_window_set_position(window->swc, x, y);
+}
+
+void
+set_window_size(struct window *window, uint32_t width, uint32_t height)
+{
+	debug("Setting window size");
+	swc_window_set_size(window->swc, width, height);
+}
+
+void
 set_window_geometry(struct window *window, struct swc_rectangle *geometry)
 {
 	debug("Setting window geometry");
