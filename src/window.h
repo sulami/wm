@@ -62,6 +62,26 @@ void fullscreen_winodw(struct window *);
 void window_entered(void *);
 
 /*
+ * Begin interactive move of a window.
+ */
+void begin_move(struct window *);
+
+/*
+ * End interactive move of a window.
+ */
+void end_move(struct window *);
+
+/*
+ * Begin interactive resize of a window.
+ */
+void begin_resize(struct window *);
+
+/*
+ * End interactive resize of a window.
+ */
+void end_resize(struct window *);
+
+/*
  * Callback for destroying windows. Trigger removal from screen, free
  * the window structure.
  */

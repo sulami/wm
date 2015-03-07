@@ -109,3 +109,31 @@ window_destroy(void *data)
 	free(window);
 }
 
+void
+begin_move(struct window *window)
+{
+	debug("Beginning interactive window move");
+	swc_window_begin_move(window->swc);
+}
+
+void
+end_move(struct window *window)
+{
+	debug("Ending interactive window move");
+	swc_window_end_move(window->swc);
+}
+
+void
+begin_resize(struct window *window)
+{
+	debug("Beginning interactive window resize");
+	swc_window_begin_resize(window->swc, SWC_WINDOW_EDGE_AUTO);
+}
+
+void
+end_resize(struct window *window)
+{
+	debug("Ending interactive window resize");
+	swc_window_end_resize(window->swc);
+}
+
