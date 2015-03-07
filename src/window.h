@@ -26,17 +26,18 @@ void show_window(struct window *);
 void hide_window(struct window *);
 
 /*
- * Set the window position
+ * Set the window position.
  */
 void set_window_position(struct window *, int32_t, int32_t);
 
 /*
- * Set the window size
+ * Set the window size.
  */
 void set_window_size(struct window *, uint32_t, uint32_t);
 
 /*
- * Set the geometry of a window.
+ * Set the geometry of a window. This combines setting position and
+ * size.
  */
 void set_window_geometry(struct window *, struct swc_rectangle *);
 
