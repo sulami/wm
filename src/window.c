@@ -79,18 +79,13 @@ void
 set_window_geometry(struct window *window, struct swc_rectangle *geometry)
 {
 	debug("Setting window geometry");
-	if (!window || !geometry)
-		return;
-
 	swc_window_set_geometry(window->swc, geometry);
 }
 
 void
 set_window_border(struct window *window, uint32_t color, int width)
 {
-	if (!window)
-		return;
-
+	debug("Setting window border");
 	swc_window_set_border(window->swc, color, width);
 }
 
