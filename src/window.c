@@ -27,14 +27,13 @@ void
 focus_window(struct window *window)
 {
 	debug("Switching window focus");
-	if (window)
+	if (window) {
 		swc_window_focus(window->swc);
-		/*
-		* TODO
-		* - set borders ?
-		*/
-	else
+		/* TODO get the border color (and size?) from the config */
+		set_window_border(window, 0xffffffff, 1);
+	} else {
 		swc_window_focus(NULL);
+	}
 
 	wm.active_window = window;
 }
@@ -104,10 +103,7 @@ window_destroy(void *data)
 	debug("Window destroyed");
 	struct window *window = data;
 
-	/*
-	 * TODO
-	 * - change focus ?
-	 */
+	/* TODO change focus? */
 
 	screen_remove_window(window->screen, window);
 	free(window);
