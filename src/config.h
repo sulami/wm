@@ -2,7 +2,7 @@
 #define CONFIG_H
 
 /*
- * Load the config file and parse it.
+ * Load the config file and initiate the parsing.
  */
 void load_config(char *);
 
@@ -10,11 +10,6 @@ void load_config(char *);
  * Take the already opened FILE, read it line by line and parse it.
  */
 void parse_config(FILE *);
-
-/*
- * Try to open the file at the path given and return the FILE.
- */
-FILE *open_config(char *);
 
 #endif
 
