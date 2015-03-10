@@ -4,7 +4,6 @@
 #include <stdbool.h>
 
 #define VERSION "0.2a"
-#define DEFAULT_CONFIG_PATH "~/.wmrc"
 
 /*
  * Hold the complete global state, the Wayland connection, active

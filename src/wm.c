@@ -1,7 +1,9 @@
 #include <getopt.h>
+#include <pwd.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
 #include "config.h"
 #include "util.h"
@@ -41,7 +43,7 @@ main(int argc, char *argv[])
 
 	/* Load the default config if no custom one has been loaded */
 	if (!conf)
-		load_config(DEFAULT_CONFIG_PATH);
+		load_config(getpwuid(getuid())->pw_dir);
 
 	wm.wl_connection = wayland_init();
 
