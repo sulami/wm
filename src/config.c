@@ -1,34 +1,36 @@
 #define _DEFAULT_SOURCE
 
 #include <stdio.h>
+#include <string.h>
 
 #include "util.h"
-
-FILE *
-open_config(char *path)
-{
-	FILE *file;
-
-	if ((file = fopen(path, "r")))
-		debug("Loaded config file");
-	else {
-		warn("Could not load config file");
-		return NULL;
-	}
-
-	return file;
-}
 
 void
 parse_config(FILE *file)
 {
+	size_t size = 0;
 	char *line = NULL;
-	size_t size;
 
 	while(getline(&line, &size, file) != -1) {
+		char *cmd = strtok(line, " \t");
+		if (cmd[0] == '#' || cmd[0] == '\n')
+			continue;
+
+		if (!strcmp(cmd, "bind")) {
+			char *key = strtok(NULL, " \t\n");
+			char *cmd = strtok(NULL, " \t\n");
+			if (!key || !cmd) {
+				debug("Failed to register keybind");
+				continue;
+			}
+
+			debug("Binding registered");
+		} else {
+			debug("Found unknown command in config");
+		}
+
 		/*
 		 * TODO
-		 * - parse the active line
 		 * - set the settings accordingly
 		 */
 	}
@@ -37,9 +39,19 @@ parse_config(FILE *file)
 void
 load_config(char *path)
 {
+	FILE *file;
+
 	debug("Loading config file");
-	FILE *file = open_config(path);
-	if (file)
-		parse_config(file);
+
+	file = fopen(path, "r");
+	if (!file) {
+		warn("Could not load config file");
+		return;
+	}
+
+	debug("Loaded config file");
+
+	parse_config(file);
+	fclose(file);
 }
 
