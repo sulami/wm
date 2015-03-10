@@ -25,6 +25,15 @@ parse_config(FILE *file)
 			}
 
 			debug("Binding registered");
+		} else if (!strcmp(cmd, "set")) {
+			char *setting = strtok(NULL, " \t\n");
+			char *value = strtok(NULL, " \t\n");
+			if (!setting || !value) {
+				debug("Failed to register setting");
+				continue;
+			}
+
+			debug("Setting registers");
 		} else {
 			debug("Found unknown command in config");
 		}
