@@ -24,6 +24,14 @@ parse_config(FILE *file)
 				continue;
 			}
 
+			if (!strcmp(cmd, "spawn")) {
+				char *prog = strtok(NULL, " \t\n");
+				if (!prog) {
+					debug("Failed to register keybind");
+					continue;
+				}
+			}
+
 			debug("Binding registered");
 		} else if (!strcmp(cmd, "set")) {
 			char *setting = strtok(NULL, " \t\n");
