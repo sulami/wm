@@ -61,3 +61,9 @@ screen_remove_window(struct screen *screen, struct window *window)
 	swc_window_hide(window->swc);
 }
 
+struct swc_rectangle *
+screen_get_geometry(struct screen *screen)
+{
+	return &screen->swc->usable_geometry;
+}
+
