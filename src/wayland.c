@@ -5,7 +5,7 @@
 
 #include "util.h"
 #include "wayland.h"
-#include "wm.h"
+#include "window.h"
 
 struct wl_connection *
 wayland_init()
@@ -27,6 +27,16 @@ wayland_init()
 	debug("Initializing swc");
 	if (!swc_initialize(conn->display, NULL, &manager))
 		die("Failed to initialize swc");
+
+	/* Basic test winodw movement */
+	swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO, XK_h,
+	                &window_move, &(struct movement_set){-10,0});
+	swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO, XK_j,
+	                &window_move, &(struct movement_set){0,10});
+	swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO, XK_k,
+	                &window_move, &(struct movement_set){0,-10});
+	swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO, XK_l,
+	                &window_move, &(struct movement_set){10,0});
 
 	debug("Getting event loop");
 	conn->event_loop = wl_display_get_event_loop(conn->display);
