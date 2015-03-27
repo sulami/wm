@@ -14,8 +14,7 @@ move_right()
 	struct swc_window *win = wm.active_window->swc;
 	struct swc_rectangle *geo = swc_window_get_geometry(win);
 
-	geo->x += 10;
-	swc_window_set_geometry(win, geo);
+	swc_window_set_position(win, geo->x + 10, geo->y);
 }
 
 struct wl_connection *
