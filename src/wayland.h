@@ -6,7 +6,6 @@
 #include "screen.h"
 #include "window.h"
 
-void move_right();
 /*
  * Use swc to initialize a Wayland connection.
  */

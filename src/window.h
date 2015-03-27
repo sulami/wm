@@ -95,5 +95,21 @@ static const struct swc_window_handler window_handler = {
 	.entered = &window_entered,
 };
 
+/*
+ * A simple struct for window_move() to package both coordinates in one
+ * pointer.
+ */
+struct movement_set {
+	int x;
+	int y;
+};
+
+/*
+ * Move the active window relativ to its current position. To be used
+ * as a swc binding with a movement_set struct pointer as first
+ * argument, hence the fancy arguments.
+ */
+void window_move(void *, uint32_t, uint32_t, uint32_t);
+
 #endif
 

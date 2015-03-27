@@ -137,3 +137,15 @@ end_resize(struct window *window)
 	swc_window_end_resize(window->swc);
 }
 
+void
+window_move(void *data, uint32_t time, uint32_t value, uint32_t state)
+{
+	debug("Moving window");
+
+	struct movement_set *ms = (struct movement_set *)data;
+	struct window *win = wm.active_window;
+	struct swc_rectangle *geo = swc_window_get_geometry(win->swc);
+
+	set_window_position(win, geo->x + ms->x, geo->y + ms->y);
+}
+
