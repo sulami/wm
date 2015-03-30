@@ -36,6 +36,14 @@ Usage
 
 None yet.
 
+Todo
+----
+
+- [x] Bind the swc stuff
+- [x] Produce a working Wayland display that can handle windows
+- [ ] Parse keybinds and commands from a config file
+- [ ] Add actual wm logic
+
 Contributing
 ------------
 
