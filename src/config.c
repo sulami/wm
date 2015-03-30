@@ -1,8 +1,14 @@
 #define _DEFAULT_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <swc.h>
+#include <wayland-server.h>
+#include <wayland-util.h>
+#include <X11/keysym.h>
 
+#include "window.h"
 #include "util.h"
 
 void
@@ -27,9 +33,25 @@ parse_config(FILE *file)
 			if (!strcmp(cmd, "spawn")) {
 				char *prog = strtok(NULL, " \t\n");
 				if (!prog) {
-					debug("Failed to register keybind");
+					debug("Failed to register spawn bind");
 					continue;
 				}
+			} else if (!strcmp(cmd, "move")) {
+				char *cx = strtok(NULL, "\t\n");
+				char *cy = strtok(NULL, "\t\n");
+
+				if (!cx || !cy) {
+					debug("Failed to register move bind");
+					continue;
+				}
+
+				int x = strtol(cx, NULL, 10);
+				int y = strtol(cy, NULL, 10);
+
+				/* FIXME */
+				swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO,
+				                key, &window_move,
+				                &(struct movement_set){x,y});
 			}
 
 			debug("Binding registered");
