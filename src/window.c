@@ -74,6 +74,13 @@ set_window_size(struct window *window, uint32_t width, uint32_t height)
 	swc_window_set_size(window->swc, width, height);
 }
 
+struct swc_rectangle *
+get_window_geometry(struct window *window)
+{
+	debug("Getting window geometry");
+	return swc_window_get_geometry(window->swc);
+}
+
 void
 set_window_geometry(struct window *window, struct swc_rectangle *geometry)
 {
@@ -144,7 +151,7 @@ window_move(void *data, uint32_t time, uint32_t value, uint32_t state)
 
 	struct movement_set *ms = (struct movement_set *)data;
 	struct window *win = wm.active_window;
-	struct swc_rectangle *geo = swc_window_get_geometry(win->swc);
+	struct swc_rectangle *geo = get_window_geometry(win);
 
 	set_window_position(win, geo->x + ms->x, geo->y + ms->y);
 }

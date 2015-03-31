@@ -36,6 +36,11 @@ void set_window_position(struct window *, int32_t, int32_t);
 void set_window_size(struct window *, uint32_t, uint32_t);
 
 /*
+ * Get the geometry of a window.
+ */
+struct swc_rectangle *get_window_geometry(struct window *);
+
+/*
  * Set the geometry of a window. This combines setting position and
  * size.
  */
