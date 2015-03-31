@@ -48,7 +48,7 @@ static const struct swc_screen_handler screen_handler = {
 /*
  * Helper function to get the geometry of a screen.
  */
-struct swc_rectangle *screen_get_geometry(struct screen *);
+struct swc_rectangle *get_screen_geometry(struct screen *);
 
 #endif
 
