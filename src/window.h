@@ -116,5 +116,23 @@ struct movement_set {
  */
 void window_move(void *, uint32_t, uint32_t, uint32_t);
 
+/*
+ * A simple struct for window_warp() to package the position to warp to
+ * in one pointer. The structure here is:
+ * x/y <  0 : left/top
+ * x/y == 0 : center
+ * x/y >  0 : right/bottom
+ */
+struct warp_set {
+	int x;
+	int y;
+};
+
+/*
+ * Move the active window to a screen edge dictated by the warp_set
+ * pointer that should be passed as the first argument.
+ */
+void window_warp(void *, uint32_t, uint32_t, uint32_t);
+
 #endif
 

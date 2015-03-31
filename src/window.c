@@ -156,3 +156,33 @@ window_move(void *data, uint32_t time, uint32_t value, uint32_t state)
 	set_window_position(win, geo->x + ms->x, geo->y + ms->y);
 }
 
+void
+window_warp(void *data, uint32_t time, uint32_t value, uint32_t state)
+{
+	debug("Warping window");
+
+	int x, y;
+
+	struct warp_set *ws = (struct warp_set *)data;
+	struct window *win = wm.active_window;
+	struct swc_rectangle *wingeo = get_window_geometry(win);
+	struct screen *scr = win->screen;
+	struct swc_rectangle *scrgeo = get_screen_geometry(scr);
+
+	if (ws->x < 0)
+		x = 0;
+	else if (ws->x > 0)
+		x = scrgeo->width - wingeo->width;
+	else
+		x = scrgeo->width / 2 - wingeo->width / 2;
+
+	if (ws->y < 0)
+		y = 0;
+	else if (ws->y > 0)
+		y = scrgeo->height - wingeo->height;
+	else
+		y = scrgeo->height / 2 - wingeo->height / 2;
+
+	set_window_position(win, x, y);
+}
+
