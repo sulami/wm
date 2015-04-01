@@ -1,0 +1,20 @@
+# WM config
+# Lines starting with '#' and blank lines are ignored.
+
+# Move the active window relatively by 10 pixels.
+bind h move -10   0
+bind j move   0  10
+bind k move   0 -10
+bind l move  10   0
+
+# Warp the active window to the 9 preset positions on the screen.
+bind q warp -1 -1
+bind w warp  0 -1
+bind e warp  1 -1
+bind a warp -1  0
+bind s warp  0  0
+bind d warp  1  0
+bind z warp -1  1
+bind x warp  0  1
+bind c warp  1  1
+
