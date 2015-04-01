@@ -6,7 +6,7 @@
 #include <swc.h>
 #include <wayland-server.h>
 #include <wayland-util.h>
-#include <X11/keysym.h>
+#include <X11/Xlib.h>
 
 #include "window.h"
 #include "util.h"
@@ -14,10 +14,9 @@
 void
 parse_config(FILE *file)
 {
-	size_t size = 0;
-	char *line = NULL;
+	char line[256];
 
-	while(getline(&line, &size, file) != -1) {
+	while(fgets(line, sizeof(line), file)) {
 		char *cmd = strtok(line, " \t");
 		if (cmd[0] == '#' || cmd[0] == '\n')
 			continue;
@@ -27,6 +26,12 @@ parse_config(FILE *file)
 			char *cmd = strtok(NULL, " \t\n");
 			if (!key || !cmd) {
 				warn("Failed to register keybind");
+				continue;
+			}
+
+			int ks = XStringToKeysym(key);
+			if (!ks) {
+				warn("Unknown key in config");
 				continue;
 			}
 
@@ -41,16 +46,15 @@ parse_config(FILE *file)
 				char *cy = strtok(NULL, "\t\n");
 
 				if (!cx || !cy) {
-					debug("Failed to register move bind");
+					warn("Failed to register move bind");
 					continue;
 				}
 
 				int x = strtol(cx, NULL, 10);
 				int y = strtol(cy, NULL, 10);
 
-				/* FIXME */
 				swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO,
-				                key, &window_move,
+				                ks, &window_move,
 				                &(struct movement_set){x,y});
 			}
 
@@ -67,11 +71,6 @@ parse_config(FILE *file)
 		} else {
 			warn("Found unknown command in config");
 		}
-
-		/*
-		 * TODO
-		 * - set the settings accordingly
-		 */
 	}
 }
 
@@ -88,9 +87,10 @@ load_config(char *path)
 		return;
 	}
 
+	parse_config(file);
+
 	debug("Loaded config file");
 
-	parse_config(file);
 	fclose(file);
 }
 

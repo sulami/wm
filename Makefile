@@ -9,7 +9,7 @@ CC = gcc
 CFLAGS += -std=c99 -pedantic -Wall -Wextra -Werror \
           -Wimplicit-function-declaration -Wno-main -Wno-uninitialized \
 	  -Wno-unused-parameter
-LDFLAGS += -lwayland-server -lswc
+LDFLAGS += -lwayland-server -lswc -lX11
 
 SRCDIR = src
 SRC = $(SRCDIR)/$(PROJECT).c
