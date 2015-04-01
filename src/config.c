@@ -26,14 +26,14 @@ parse_config(FILE *file)
 			char *key = strtok(NULL, " \t\n");
 			char *cmd = strtok(NULL, " \t\n");
 			if (!key || !cmd) {
-				debug("Failed to register keybind");
+				warn("Failed to register keybind");
 				continue;
 			}
 
 			if (!strcmp(cmd, "spawn")) {
 				char *prog = strtok(NULL, " \t\n");
 				if (!prog) {
-					debug("Failed to register spawn bind");
+					warn("Failed to register spawn bind");
 					continue;
 				}
 			} else if (!strcmp(cmd, "move")) {
@@ -59,13 +59,13 @@ parse_config(FILE *file)
 			char *setting = strtok(NULL, " \t\n");
 			char *value = strtok(NULL, " \t\n");
 			if (!setting || !value) {
-				debug("Failed to register setting");
+				warn("Failed to register setting");
 				continue;
 			}
 
 			debug("Setting registers");
 		} else {
-			debug("Found unknown command in config");
+			warn("Found unknown command in config");
 		}
 
 		/*
