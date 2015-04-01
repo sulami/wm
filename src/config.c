@@ -27,6 +27,21 @@ add_move_bind(int key, int x, int y)
 }
 
 void
+add_warp_bind(int key, int x, int y)
+{
+	struct warp_set *ws = malloc(sizeof(struct warp_set));
+	if (!ws){
+		warn("Failed to allocate memory for warp bind");
+		return;
+	}
+
+	ws->x = x;
+	ws->y = y;
+
+	swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO, key, &window_warp, ws);
+}
+
+void
 parse_config(FILE *file)
 {
 	char line[256];
@@ -69,6 +84,19 @@ parse_config(FILE *file)
 				int y = strtol(cy, NULL, 10);
 
 				add_move_bind(ks, x, y);
+			} else if (!strcmp(cmd, "warp")) {
+				char *cx = strtok(NULL, " \t\n");
+				char *cy = strtok(NULL, " \t\n");
+
+				if (!cx || !cy) {
+					warn("Failed to register spawn bind");
+					continue;
+				}
+
+				int x = strtol(cx, NULL, 10);
+				int y = strtol(cy, NULL, 10);
+
+				add_warp_bind(ks, x, y);
 			} else {
 				warn("Unknown command in config");
 				continue;

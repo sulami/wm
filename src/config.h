@@ -17,5 +17,10 @@ void parse_config(FILE *);
  */
 void add_move_bind(int, int, int);
 
+/*
+ * Register a warp bind. Works just like adding move binds.
+ */
+void add_warp_bind(int, int, int);
+
 #endif
 
