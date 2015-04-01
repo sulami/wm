@@ -12,6 +12,21 @@
 #include "util.h"
 
 void
+add_move_bind(int key, int x, int y)
+{
+	struct movement_set *ms = malloc(sizeof(struct movement_set));
+	if (!ms) {
+		warn("Failed to allocate memory for move bind");
+		return;
+	}
+
+	ms->x = x;
+	ms->y = y;
+
+	swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO, key, &window_move, ms);
+}
+
+void
 parse_config(FILE *file)
 {
 	char line[256];
@@ -53,13 +68,7 @@ parse_config(FILE *file)
 				int x = strtol(cx, NULL, 10);
 				int y = strtol(cy, NULL, 10);
 
-				struct movement_set *ms = malloc(sizeof(
-					struct movement_set));
-				ms->x = x;
-				ms->y = y;
-
-				swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO,
-				                ks, &window_move, ms);
+				add_move_bind(ks, x, y);
 			} else {
 				warn("Unknown command in config");
 				continue;

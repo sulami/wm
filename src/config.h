@@ -11,5 +11,11 @@ void load_config(char *);
  */
 void parse_config(FILE *);
 
+/*
+ * Register a new move bind with swc/Wayland. Takes the key and
+ * coordinates.
+ */
+void add_move_bind(int, int, int);
+
 #endif
 
