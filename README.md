@@ -21,6 +21,7 @@ You will need the following:
   - libxkbcommon
   - libinput
   - libudev
+  - xlib (for parsing keys)
   - libxcb (for XWayland)
   - xcb-util-wm (for XWayland)
   - pixman
