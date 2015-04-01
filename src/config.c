@@ -53,9 +53,13 @@ parse_config(FILE *file)
 				int x = strtol(cx, NULL, 10);
 				int y = strtol(cy, NULL, 10);
 
+				struct movement_set *ms = malloc(sizeof(
+					struct movement_set));
+				ms->x = x;
+				ms->y = y;
+
 				swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO,
-				                ks, &window_move,
-				                &(struct movement_set){x,y});
+				                ks, &window_move, ms);
 			} else {
 				warn("Unknown command in config");
 				continue;
