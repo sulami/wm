@@ -25,13 +25,17 @@ wayland_init()
 	if (!swc_initialize(conn->display, NULL, &manager))
 		die("Failed to initialize swc");
 
+	return conn;
+}
+
+void
+wayland_run(struct wl_connection *conn)
+{
 	debug("Getting event loop");
 	conn->event_loop = wl_display_get_event_loop(conn->display);
 
 	debug("Starting Wayland display");
 	wl_display_run(conn->display);
-
-	return conn;
 }
 
 void

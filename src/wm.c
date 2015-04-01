@@ -40,6 +40,8 @@ main(int argc, char *argv[])
 		}
 	}
 
+	wm.wl_connection = wayland_init();
+
 	/* Load the default config if no custom one has been loaded */
 	if (!conf) {
 		char *conf = getenv("XDG_CONFIG_HOME");
@@ -47,7 +49,7 @@ main(int argc, char *argv[])
 		load_config(conf);
 	}
 
-	wm.wl_connection = wayland_init();
+	wayland_run(wm.wl_connection);
 
 	wayland_exit(wm.wl_connection);
 

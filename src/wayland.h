@@ -12,6 +12,12 @@
 struct wl_connection *wayland_init();
 
 /*
+ * Start the Wayland event loop after we have loaded the config and
+ * added all the binds.
+ */
+void wayland_run(struct wl_connection *);
+
+/*
  * Terminate an existing Wayland connection by destroying the display.
  */
 void wayland_exit(struct wl_connection *);
