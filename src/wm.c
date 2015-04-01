@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "config.h"
 #include "util.h"
@@ -40,8 +41,11 @@ main(int argc, char *argv[])
 	}
 
 	/* Load the default config if no custom one has been loaded */
-	if (!conf)
-		load_config(getenv("XDG_CONFIG_HOME"));
+	if (!conf) {
+		char *conf = getenv("XDG_CONFIG_HOME");
+		strcat(conf, "/.wmrc");
+		load_config(conf);
+	}
 
 	wm.wl_connection = wayland_init();
 
