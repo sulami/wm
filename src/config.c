@@ -56,6 +56,9 @@ parse_config(FILE *file)
 				swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO,
 				                ks, &window_move,
 				                &(struct movement_set){x,y});
+			} else {
+				warn("Unknown command in config");
+				continue;
 			}
 
 			debug("Binding registered");
