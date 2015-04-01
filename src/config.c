@@ -42,8 +42,8 @@ parse_config(FILE *file)
 					continue;
 				}
 			} else if (!strcmp(cmd, "move")) {
-				char *cx = strtok(NULL, "\t\n");
-				char *cy = strtok(NULL, "\t\n");
+				char *cx = strtok(NULL, " \t\n");
+				char *cy = strtok(NULL, " \t\n");
 
 				if (!cx || !cy) {
 					warn("Failed to register move bind");
