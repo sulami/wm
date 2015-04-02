@@ -43,7 +43,20 @@ Todo
 - [x] Bind the swc stuff
 - [x] Produce a working Wayland display that can handle windows
 - [ ] Parse keybinds and commands from a config file
-- [ ] Add actual wm logic
+  - [x] Window movement
+  - [x] Window warping
+  - [x] Spawn
+  - [ ] Focus changing
+  - [ ] Grouping stuff
+  - [ ] Monitor stuff
+  - [ ] Reloading settings
+  - [ ] Quitting
+  - [ ] Custom modifiers instead of using Mod4 for everything
+- [ ] Window groups
+- [ ] Monitors
+- [ ] Settings
+  - [ ] Custom borders
+  - [ ] Custom margins
 
 Contributing
 ------------
