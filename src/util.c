@@ -30,16 +30,15 @@ die(char *err)
 void
 spawn(void *data, uint32_t time, uint32_t value, uint32_t state)
 {
-	char * const *command = data;
-
-	if (time || value) {} /* FIXME shut up compiler */
+	char *command[] = { data, NULL };
 
 	if (state != WL_KEYBOARD_KEY_STATE_PRESSED)
 		return;
 
 	if (fork() == 0) {
+		printf("starting %s\n", command[0]);
 		execvp(command[0], command);
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 }
 

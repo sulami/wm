@@ -22,5 +22,10 @@ void add_move_bind(int, int, int);
  */
 void add_warp_bind(int, int, int);
 
+/*
+ * Register a spawn bind. Takes the command to run.
+ */
+void add_spawn_bind(int, char *);
+
 #endif
 

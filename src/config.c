@@ -42,6 +42,20 @@ add_warp_bind(int key, int x, int y)
 }
 
 void
+add_spawn_bind(int key, char *cmd)
+{
+	char *command = malloc(8 * strlen(cmd));
+	if (!command) {
+		warn("Failed to allocate memory for spawn bind");
+		return;
+	}
+
+	strcpy(command, cmd);
+
+	swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO, key, &spawn, command);
+}
+
+void
 parse_config(FILE *file)
 {
 	char line[256];
@@ -71,6 +85,8 @@ parse_config(FILE *file)
 					warn("Failed to register spawn bind");
 					continue;
 				}
+
+				add_spawn_bind(ks, prog);
 			} else if (!strcmp(cmd, "move")) {
 				char *cx = strtok(NULL, " \t\n");
 				char *cy = strtok(NULL, " \t\n");
