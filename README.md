@@ -52,6 +52,7 @@ Todo
   - [ ] Reloading settings
   - [ ] Quitting
   - [ ] Custom modifiers instead of using Mod4 for everything
+  - [ ] Configurable Mouse actions
 - [ ] Window groups
 - [ ] Monitors
 - [ ] Settings
