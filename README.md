@@ -57,6 +57,7 @@ Todo
 - [ ] Settings
   - [ ] Custom borders
   - [ ] Custom margins
+- [ ] A manpage and other proper end-user documentation
 
 Contributing
 ------------
