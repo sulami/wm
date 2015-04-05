@@ -134,5 +134,11 @@ struct warp_set {
  */
 void window_warp(void *, uint32_t, uint32_t, uint32_t);
 
+/*
+ * Change the window focus either forwards or backwards, depending on
+ * the data passed.
+ */
+void window_change_focus(void *, uint32_t, uint32_t, uint32_t);
+
 #endif
 

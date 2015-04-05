@@ -186,3 +186,9 @@ window_warp(void *data, uint32_t time, uint32_t value, uint32_t state)
 	set_window_position(win, x, y);
 }
 
+void
+window_change_focus(void *data, uint32_t time, uint32_t value, uint32_t state)
+{
+	debug("Changing focus");
+}
+

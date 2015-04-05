@@ -56,6 +56,19 @@ add_spawn_bind(int key, char *cmd)
 }
 
 void
+add_focus_bind(int key, int direction)
+{
+	int *dir = malloc(sizeof(int));
+	if (!dir) {
+		warn("Failed to allocate memory for focus bind");
+		return;
+	}
+
+	swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO, key,
+	                &window_change_focus, dir);
+}
+
+void
 parse_config(FILE *file)
 {
 	char line[256];
@@ -113,6 +126,16 @@ parse_config(FILE *file)
 				int y = strtol(cy, NULL, 10);
 
 				add_warp_bind(ks, x, y);
+			} else if (!strcmp(cmd, "focus")) {
+				char *cd = strtok(NULL, " \t\n");
+
+				if (!cd) {
+					warn("Failed to register focus bind");
+					continue;
+				}
+
+				int d = strtol(cd, NULL, 10);
+				add_focus_bind(ks, d);
 			} else {
 				warn("Unknown command in config");
 				continue;
