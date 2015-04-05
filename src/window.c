@@ -192,7 +192,12 @@ window_change_focus(void *data, uint32_t time, uint32_t value, uint32_t state)
 	debug("Changing focus");
 
 	struct window *win = wm.active_window;
-	win = wl_container_of(win->link.next, win, link);
+
+	if (*(int *)data > 0) {
+		win = wl_container_of(win->link.next, win, link);
+	} else {
+		win = wl_container_of(win->link.prev, win, link);
+	}
 
 	focus_window(win);
 }
