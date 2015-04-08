@@ -1,6 +1,10 @@
 # WM config
 # Lines starting with '#' and blank lines are ignored.
 
+# Set the borders and margins
+set borders 2
+set margins 20
+
 # Move the active window relatively by 10 pixels.
 bind h move -10   0
 bind j move   0  10
