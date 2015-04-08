@@ -10,10 +10,15 @@
  * screens and windows.
  */
 struct wm {
-	bool debug;
 	struct wl_connection *wl_connection;
 	struct screen *active_screen;
 	struct window *active_window;
+
+	bool debug;
+
+	int borders;
+	int margins;
+
 	/*
 	 * Keep this back here under all circumstances. For some
 	 * reason, if it is placed in front of the wl_connection,

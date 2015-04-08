@@ -9,6 +9,7 @@
 #include <X11/Xlib.h>
 
 #include "window.h"
+#include "wm.h"
 #include "util.h"
 
 void
@@ -150,7 +151,26 @@ parse_config(FILE *file)
 				continue;
 			}
 
-			debug("Setting registers");
+			if (!strcmp(setting, "borders")) {
+				int b = strtol(value, NULL, 10);
+				if (!b) {
+					warn("Failed to register borders");
+					continue;
+				}
+				wm.borders = b;
+			} else if (!strcmp(setting, "margins")) {
+				int m = strtol(value, NULL, 10);
+				if (!m) {
+					warn("Failed to register margins");
+					continue;
+				}
+				wm.margins = m;
+			} else {
+				warn("Unknown setting in config");
+				continue;
+			}
+
+			debug("Setting registered");
 		} else {
 			warn("Found unknown command in config");
 		}
