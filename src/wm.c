@@ -13,15 +13,13 @@ int
 main(int argc, char *argv[])
 {
 	int opt;
-	bool conf = false;
 
 	wm.debug = false;
 
 	while((opt = getopt(argc, argv, "c:dhv")) != -1) {
 		switch (opt) {
 		case 'c':
-			load_config(optarg);
-			conf = true;
+			wm.config = optarg;
 			break;
 		case 'd':
 			wm.debug = true;
@@ -43,11 +41,13 @@ main(int argc, char *argv[])
 	wm.wl_connection = wayland_init();
 
 	/* Load the default config if no custom one has been loaded */
-	if (!conf) {
+	if (!wm.config) {
 		char *conf = getenv("XDG_CONFIG_HOME");
 		strcat(conf, "/.wmrc");
-		load_config(conf);
+		wm.config = conf;
 	}
+
+	load_config(wm.config);
 
 	wayland_run(wm.wl_connection);
 
