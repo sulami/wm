@@ -46,7 +46,7 @@ Todo
   - [x] Window movement
   - [x] Window warping
   - [x] Spawn
-  - [X] Focus changing
+  - [x] Focus changing
   - [ ] Grouping stuff
   - [ ] Monitor stuff
   - [ ] Reloading settings
@@ -57,7 +57,7 @@ Todo
 - [ ] Monitors
 - [ ] Settings
   - [ ] Custom borders
-  - [ ] Custom margins
+  - [x] Custom margins
 - [ ] All sorts of bugfixing, NULL-checking, etc.
 - [ ] A manpage and other proper end-user documentation
 
