@@ -29,10 +29,10 @@ main(int argc, char *argv[])
 			break;
 		case 'h':
 			puts("TBD");
-			break;
+			exit(EXIT_SUCCESS);
 		case 'v':
 			printf("%s %s\n", argv[0], VERSION);
-			break;
+			exit(EXIT_SUCCESS);
 		default:
 			fprintf(stderr, "Usage: %s [-dhv] [-c config]\n",
 			        argv[0]);
