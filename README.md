@@ -42,12 +42,13 @@ Todo
 
 - [x] Bind the swc stuff
 - [x] Produce a working Wayland display that can handle windows
-- [ ] Parse keybinds and commands from a config file
+- [x] Parse keybinds and commands from a config file
   - [x] Window movement
   - [x] Window warping
-  - [x] Spawn
+  - [x] Spawning
   - [x] Focus changing
   - [ ] Grouping stuff
+  - [ ] Resizing
   - [ ] Monitor stuff
   - [ ] Reloading settings
   - [ ] Quitting
@@ -55,7 +56,7 @@ Todo
   - [ ] Configurable Mouse actions
 - [ ] Window groups
 - [ ] Monitors
-- [ ] Settings
+- [x] Settings
   - [ ] Custom borders
   - [x] Custom margins
 - [ ] All sorts of bugfixing, NULL-checking, etc.
