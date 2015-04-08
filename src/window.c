@@ -170,16 +170,16 @@ window_warp(void *data, uint32_t time, uint32_t value, uint32_t state)
 	struct swc_rectangle *scrgeo = get_screen_geometry(scr);
 
 	if (ws->x < 0)
-		x = 0;
+		x = wm.margins;
 	else if (ws->x > 0)
-		x = scrgeo->width - wingeo->width;
+		x = scrgeo->width - wingeo->width - wm.margins;
 	else
 		x = scrgeo->width / 2 - wingeo->width / 2;
 
 	if (ws->y < 0)
-		y = 0;
+		y = wm.margins;
 	else if (ws->y > 0)
-		y = scrgeo->height - wingeo->height;
+		y = scrgeo->height - wingeo->height - wm.margins;
 	else
 		y = scrgeo->height / 2 - wingeo->height / 2;
 
