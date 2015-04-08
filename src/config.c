@@ -44,7 +44,7 @@ add_warp_bind(int key, int x, int y)
 void
 add_spawn_bind(int key, char *cmd)
 {
-	char *command = malloc(sizeof(char) * strlen(cmd));
+	char *command = malloc(sizeof(char) * strlen(cmd) + 1);
 	if (!command) {
 		warn("Failed to allocate memory for spawn bind");
 		return;
