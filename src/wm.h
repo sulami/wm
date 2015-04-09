@@ -13,7 +13,7 @@ struct wm {
 	char *config;
 
 	bool debug;
-	int borders;
+	int borderwidth;
 	int margins;
 
 	struct wl_connection *wl_connection;

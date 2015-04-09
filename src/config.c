@@ -179,13 +179,13 @@ parse_config(FILE *file)
 				continue;
 			}
 
-			if (!strcmp(setting, "borders")) {
+			if (!strcmp(setting, "borderwidth")) {
 				int b = strtol(value, NULL, 10);
 				if (!b) {
 					warn("Failed to register borders");
 					continue;
 				}
-				wm.borders = b;
+				wm.borderwidth = b;
 			} else if (!strcmp(setting, "margins")) {
 				int m = strtol(value, NULL, 10);
 				if (!m) {

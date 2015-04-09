@@ -30,7 +30,7 @@ focus_window(struct window *window)
 	if (window) {
 		swc_window_focus(window->swc);
 		/* TODO get the border color (and size?) from the config */
-		set_window_border(window, 0xffffffff, 1);
+		set_window_border(window, 0xffffffff, wm.borderwidth);
 	} else {
 		swc_window_focus(NULL);
 	}
