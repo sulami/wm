@@ -14,6 +14,7 @@ struct wm {
 
 	bool debug;
 	int borderwidth;
+	unsigned int bordercolor;
 	int margins;
 
 	struct wl_connection *wl_connection;

@@ -182,10 +182,17 @@ parse_config(FILE *file)
 			if (!strcmp(setting, "borderwidth")) {
 				int b = strtol(value, NULL, 10);
 				if (!b) {
-					warn("Failed to register borders");
+					warn("Failed to register border width");
 					continue;
 				}
 				wm.borderwidth = b;
+			} else if (!strcmp(setting, "bordercolor")) {
+				int c = strtol(value, NULL, 16);
+				if (!c) {
+					warn("Failed to register border color");
+					continue;
+				}
+				wm.bordercolor = c;
 			} else if (!strcmp(setting, "margins")) {
 				int m = strtol(value, NULL, 10);
 				if (!m) {

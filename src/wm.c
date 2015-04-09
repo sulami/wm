@@ -17,6 +17,7 @@ main(int argc, char *argv[])
 	wm.debug = false;
 	wm.margins = 0;
 	wm.borderwidth = 1;
+	wm.bordercolor = 0xffffffff;
 
 	while((opt = getopt(argc, argv, "c:dhv")) != -1) {
 		switch (opt) {

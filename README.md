@@ -65,7 +65,7 @@ Todo
 - [ ] Window groups
 - [ ] Monitors
 - [x] Settings
-  - [ ] Custom borders
+  - [x] Custom borders
   - [x] Custom margins
 - [ ] All sorts of bugfixing, NULL-checking, etc.
 - [ ] A manpage and other proper end-user documentation

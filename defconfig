@@ -4,6 +4,10 @@
 # Set the borders and margins
 set margins 20
 set borderwidth 4
+# The border color setting supports hexadecimal colors with or without
+# '0x'-prefix, ARGB is supported in addition to RGB, but without
+# effect yet.
+set bordercolor abcdef
 
 # Move the active window relatively by 10 pixels.
 bind h move -10   0
