@@ -55,8 +55,8 @@ Todo
   - [x] Window warping
   - [x] Spawning
   - [x] Focus changing
+  - [x] Resizing
   - [ ] Grouping stuff
-  - [ ] Resizing
   - [ ] Monitor stuff
   - [ ] Reloading settings
   - [ ] Quitting

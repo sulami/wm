@@ -157,6 +157,18 @@ window_move(void *data, uint32_t time, uint32_t value, uint32_t state)
 }
 
 void
+window_resize(void *data, uint32_t time, uint32_t value, uint32_t state)
+{
+	debug("Resizing window");
+
+	struct resize_set *rs = (struct resize_set *)data;
+	struct window *win = wm.active_window;
+	struct swc_rectangle *geo = get_window_geometry(win);
+
+	set_window_size(win, geo->width + rs->w, geo->height + rs->h);
+}
+
+void
 window_warp(void *data, uint32_t time, uint32_t value, uint32_t state)
 {
 	debug("Warping window");

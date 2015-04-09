@@ -117,6 +117,23 @@ struct movement_set {
 void window_move(void *, uint32_t, uint32_t, uint32_t);
 
 /*
+ * This struct holds the information passed to window_resize(). It is
+ * essentially identical to movement_set, but will be kept seperately
+ * in case something changes in the future.
+ */
+struct resize_set {
+	int w;
+	int h;
+};
+
+/*
+ * Resize the active window. Changes only the width/height, and not
+ * the position, so the top-left edge should stay in place when using
+ * this.
+ */
+void window_resize(void *, uint32_t, uint32_t, uint32_t);
+
+/*
  * A simple struct for window_warp() to package the position to warp to
  * in one pointer. The structure here is:
  * x/y <  0 : left/top

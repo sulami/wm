@@ -28,6 +28,21 @@ add_move_bind(int key, int x, int y)
 }
 
 void
+add_resize_bind(int key, int w, int h)
+{
+	struct resize_set *rs = malloc(sizeof(struct resize_set));
+	if (!rs) {
+		warn("Failed to allocate memory for resize bind");
+		return;
+	}
+
+	rs->w = w;
+	rs->h = h;
+
+	swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO, key, &window_resize, rs);
+}
+
+void
 add_warp_bind(int key, int x, int y)
 {
 	struct warp_set *ws = malloc(sizeof(struct warp_set));
@@ -114,6 +129,19 @@ parse_config(FILE *file)
 				int y = strtol(cy, NULL, 10);
 
 				add_move_bind(ks, x, y);
+			} else if (!strcmp(cmd, "resize")) {
+				char *cw = strtok(NULL, " \t\n");
+				char *ch = strtok(NULL, " \t\n");
+
+				if (!cw || !ch) {
+					warn("Failed to register resize bind");
+					continue;
+				}
+
+				int w = strtol(cw, NULL, 10);
+				int h = strtol(ch, NULL, 10);
+
+				add_resize_bind(ks, w, h);
 			} else if (!strcmp(cmd, "warp")) {
 				char *cx = strtok(NULL, " \t\n");
 				char *cy = strtok(NULL, " \t\n");

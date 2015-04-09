@@ -11,6 +11,12 @@ bind j move   0  10
 bind k move   0 -10
 bind l move  10   0
 
+# Resize the active window by 10 pixels.
+bind u resize -10   0
+bind i resize   0  10
+bind o resize   0 -10
+bind p resize  10   0
+
 # Warp the active window to the 9 preset positions on the screen.
 bind q warp -1 -1
 bind w warp  0 -1
