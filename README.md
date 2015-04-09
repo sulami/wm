@@ -32,6 +32,14 @@ You will need the following:
   [a0]: https://aur.archlinux.org/packages/swc-git/
   [a1]: https://aur.archlinux.org/packages/wld-git/
 
+After building and installing swc, run
+
+```
+make clean && make
+```
+
+to build wm.
+
 Usage
 -----
 
