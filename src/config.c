@@ -93,6 +93,12 @@ add_reload_bind(int key)
 }
 
 void
+add_quit_bind(int key)
+{
+	swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO, key, &quit, NULL);
+}
+
+void
 parse_config(FILE *file)
 {
 	char line[256];
@@ -175,6 +181,8 @@ parse_config(FILE *file)
 				add_focus_bind(ks, d);
 			} else if (!strcmp(cmd, "reload")) {
 				add_reload_bind(ks);
+			} else if (!strcmp(cmd, "quit")) {
+				add_quit_bind(ks);
 			} else {
 				warn("Unknown command in config");
 				continue;

@@ -59,7 +59,7 @@ Todo
   - [ ] Grouping stuff
   - [ ] Monitor stuff
   - [x] Reloading settings
-  - [ ] Quitting
+  - [x] Quitting
   - [ ] Custom modifiers instead of using Mod4 for everything
   - [ ] Configurable Mouse actions
 - [ ] Window groups

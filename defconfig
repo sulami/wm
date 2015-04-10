@@ -38,6 +38,9 @@ bind t spawn /home/sulami/build/st/st
 # Reload/-parse this config file.
 bind r reload
 
+# Quit.
+bind p quit
+
 # Cycle the focus in either direction.
 bind n focus +1
 bind m focus -1

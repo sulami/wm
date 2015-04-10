@@ -59,3 +59,9 @@ main(int argc, char *argv[])
 	return EXIT_SUCCESS;
 }
 
+void
+quit(void *data, uint32_t time, uint32_t value, uint32_t state)
+{
+	exit(EXIT_SUCCESS);
+}
+

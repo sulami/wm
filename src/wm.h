@@ -10,6 +10,8 @@
  * screens and windows.
  */
 struct wm {
+	bool running;
+
 	char *config;
 
 	bool debug;
@@ -21,6 +23,11 @@ struct wm {
 	struct screen *active_screen;
 	struct window *active_window;
 } wm;
+
+/*
+ * Exit gracefully.
+ */
+void quit(void *, uint32_t, uint32_t, uint32_t);
 
 #endif
 
