@@ -8,6 +8,7 @@
 #include <wayland-util.h>
 #include <X11/Xlib.h>
 
+#include "config.h"
 #include "window.h"
 #include "wm.h"
 #include "util.h"
@@ -82,6 +83,13 @@ add_focus_bind(int key, int direction)
 
 	swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO, key,
 	                &window_change_focus, dir);
+}
+
+void
+add_reload_bind(int key)
+{
+	swc_add_binding(SWC_BINDING_KEY, SWC_MOD_LOGO, key, &reload_config,
+	                NULL);
 }
 
 void
@@ -165,6 +173,8 @@ parse_config(FILE *file)
 
 				int d = strtol(cd, NULL, 10);
 				add_focus_bind(ks, d);
+			} else if (!strcmp(cmd, "reload")) {
+				add_reload_bind(ks);
 			} else {
 				warn("Unknown command in config");
 				continue;
@@ -230,5 +240,11 @@ load_config(char *path)
 	debug("Loaded config file");
 
 	fclose(file);
+}
+
+void
+reload_config(void *data, uint32_t time, uint32_t value, uint32_t state)
+{
+	load_config(wm.config);
 }
 

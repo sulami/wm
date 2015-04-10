@@ -58,7 +58,7 @@ Todo
   - [x] Resizing
   - [ ] Grouping stuff
   - [ ] Monitor stuff
-  - [ ] Reloading settings
+  - [x] Reloading settings
   - [ ] Quitting
   - [ ] Custom modifiers instead of using Mod4 for everything
   - [ ] Configurable Mouse actions
