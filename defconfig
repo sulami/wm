@@ -33,7 +33,10 @@ bind x warp  0  1
 bind c warp  1  1
 
 # Spawn a terminal.
-bind r spawn /home/sulami/build/st/st
+bind t spawn /home/sulami/build/st/st
+
+# Reload/-parse this config file.
+bind r reload
 
 # Cycle the focus in either direction.
 bind n focus +1
