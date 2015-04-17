@@ -13,7 +13,7 @@ LDFLAGS += -lwayland-server -lswc -lX11
 
 SRCDIR = src
 SRC = $(SRCDIR)/$(PROJECT).c
-OBJ = config.o screen.o util.o wayland.o window.o
+OBJ = binding.o config.o screen.o util.o wayland.o window.o
 
 ifeq ($(DEBUG),0)
     CFLAGS  += -O2
