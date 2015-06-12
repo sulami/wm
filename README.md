@@ -14,7 +14,9 @@ Building
 You will need the following:
 
 - Wayland
-- [swc][0] (also on the [AUR][a0])
+- [swc][0] ~~(also on the [AUR][a0])~~ I added something crucial to swc in my
+  own fork, so you will need mine unless my changes get merged into mainline
+  swc.
   - [wld][1] (also on the [AUR][a1])
   - libdrm
   - libevdev
@@ -27,7 +29,7 @@ You will need the following:
   - pixman
   - Linux >= 3.12
 
-  [0]: https://github.com/michaelforney/swc
+  [0]: https://github.com/sulami/swc
   [1]: https://github.com/michaelforney/wld
   [a0]: https://aur.archlinux.org/packages/swc-git/
   [a1]: https://aur.archlinux.org/packages/wld-git/
